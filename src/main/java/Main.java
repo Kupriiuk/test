@@ -5,25 +5,19 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(isPrime(2));
-        List<Integer> primeList = primeList(123456);
-        System.out.println(primeList);
+        List<Integer> primeList = primeList(1000000);
+        //System.out.println(primeList);
         List<Integer> result = longArray(primeList);
-        System.out.println(longArray(result));
+        System.out.println(result.size());
+
     }
 
     public static boolean isPrime(int n) {
-        if (n < 2) {
+        if (n <= 1 && n % 2 == 0) {
             return false;
         }
-        if (n % 2 == 0) {
-            return n == 2;
-        }
-        if (n % 3 == 0) {
-            return n == 3;
-        }
-        for (int i = 5; i * i <= n; i += 6) {
-            if (n % i == 0 || n % (i + 2) == 0) {
+        for (int i = 2; i < n; i++) {
+            if (n % i == 0) {
                 return false;
             }
         }
